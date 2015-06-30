@@ -1,3 +1,3 @@
-bouncyDivsFunTime.init();
-window.addEventListener('resize', bouncyDivsFunTime.getWindowDimensions, false);
-setInterval(bouncyDivsFunTime.animateDivs, 10);
+bouncyDivs.init();
+window.addEventListener('resize', bouncyDivs.getWindowDimensions, false);
+setInterval(bouncyDivs.animateDivs, 10);
