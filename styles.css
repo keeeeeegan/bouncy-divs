@@ -1,0 +1,19 @@
+.bouncy_div {
+  display: block;
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+
+.bouncy_div:hover::after {
+  content: attr(data-speech);
+  display: block;
+  background: black;
+  color: white;
+  font-family: 'Helvetica Neue';
+  width: 100px;
+  padding: 10px;
+  right: -60px;
+  position: relative;
+}
