@@ -90,7 +90,7 @@ window.bouncyDivs = function() {
             //var color = el.color;
             //var name = el.name + " " + getName();
             var name = getName();
-            var speech = "Hello, I'm " + name + " I budded off " + el.name;
+            var speech = "Hello, I'm " + name + "! I budded off " + el.name;
             addNewBouncyDiv({name: name, color: getColor(), speech: speech, x: el.x, y: el.y, directionY: elemDirectionY, directionX: elemDirectionX});
           }
          }
