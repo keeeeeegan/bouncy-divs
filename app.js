@@ -1,5 +1,5 @@
 
-var colors = ["AliceBlue", "AntiqueWhite", "Aqua", "Aquamarine", "Azure", "Beige", "Bisque", "Black", "BlanchedAlmond", "Blue", "BlueViolet", "Brown", "BurlyWood", "CadetBlue", "Chartreuse", "Chocolate", "Coral", "CornflowerBlue", "Cornsilk", "Crimson", "Cyan", "DarkBlue", "DarkCyan", "DarkGoldenRod", "DarkGray", "DarkGrey", "DarkGreen", "DarkKhaki", "DarkMagenta", "DarkOliveGreen", "Darkorange", "DarkOrchid", "DarkRed", "DarkSalmon", "DarkSeaGreen", "DarkSlateBlue", "DarkSlateGray", "DarkSlateGrey", "DarkTurquoise", "DarkViolet", "DeepPink", "DeepSkyBlue", "DimGray", "DimGrey", "DodgerBlue", "FireBrick", "FloralWhite", "ForestGreen", "Fuchsia", "Gainsboro", "GhostWhite", "Gold", "GoldenRod", "Gray", "Grey", "Green", "GreenYellow", "HoneyDew", "HotPink", "IndianRed", "Indigo", "Ivory", "Khaki", "Lavender", "LavenderBlush", "LawnGreen", "LemonChiffon", "LightBlue", "LightCoral", "LightCyan", "LightGoldenRodYellow", "LightGray", "LightGrey", "LightGreen", "LightPink", "LightSalmon", "LightSeaGreen", "LightSkyBlue", "LightSlateGray", "LightSlateGrey", "LightSteelBlue", "LightYellow", "Lime", "LimeGreen", "Linen", "Magenta", "Maroon", "MediumAquaMarine", "MediumBlue", "MediumOrchid", "MediumPurple", "MediumSeaGreen", "MediumSlateBlue", "MediumSpringGreen", "MediumTurquoise", "MediumVioletRed", "MidnightBlue", "MintCream", "MistyRose", "Moccasin", "NavajoWhite", "Navy", "OldLace", "Olive", "OliveDrab", "Orange", "OrangeRed", "Orchid", "PaleGoldenRod", "PaleGreen", "PaleTurquoise", "PaleVioletRed", "PapayaWhip", "PeachPuff", "Peru", "Pink", "Plum", "PowderBlue", "Purple", "Red", "RosyBrown", "RoyalBlue", "SaddleBrown", "Salmon", "SandyBrown", "SeaGreen", "SeaShell", "Sienna", "Silver", "SkyBlue", "SlateBlue", "SlateGray", "SlateGrey", "Snow", "SpringGreen", "SteelBlue", "Tan", "Teal", "Thistle", "Tomato", "Turquoise", "Violet", "Wheat", "White", "WhiteSmoke", "Yellow", "YellowGreen"];
+var colors = ["AliceBlue", /*"AntiqueWhite",*/ "Aqua", "Aquamarine", "Azure", "Beige", "Bisque", "Black", "BlanchedAlmond", "Blue", "BlueViolet", "Brown", "BurlyWood", "CadetBlue", "Chartreuse", "Chocolate", "Coral", "CornflowerBlue", "Cornsilk", "Crimson", "Cyan", "DarkBlue", "DarkCyan", "DarkGoldenRod", "DarkGray", "DarkGrey", "DarkGreen", "DarkKhaki", "DarkMagenta", "DarkOliveGreen", "Darkorange", "DarkOrchid", "DarkRed", "DarkSalmon", "DarkSeaGreen", "DarkSlateBlue", "DarkSlateGray", "DarkSlateGrey", "DarkTurquoise", "DarkViolet", "DeepPink", "DeepSkyBlue", "DimGray", "DimGrey", "DodgerBlue", "FireBrick", /*"FloralWhite",*/ "ForestGreen", "Fuchsia", "Gainsboro", /*"GhostWhite",*/ "Gold", "GoldenRod", "Gray", "Grey", "Green", "GreenYellow", "HoneyDew", "HotPink", "IndianRed", "Indigo", "Ivory", "Khaki", "Lavender", "LavenderBlush", "LawnGreen", "LemonChiffon", "LightBlue", "LightCoral", "LightCyan", "LightGoldenRodYellow", "LightGray", "LightGrey", "LightGreen", "LightPink", "LightSalmon", "LightSeaGreen", "LightSkyBlue", "LightSlateGray", "LightSlateGrey", "LightSteelBlue", "LightYellow", "Lime", "LimeGreen", "Linen", "Magenta", "Maroon", "MediumAquaMarine", "MediumBlue", "MediumOrchid", "MediumPurple", "MediumSeaGreen", "MediumSlateBlue", "MediumSpringGreen", "MediumTurquoise", "MediumVioletRed", "MidnightBlue", "MintCream", "MistyRose", "Moccasin", /*"NavajoWhite",*/ "Navy", "OldLace", "Olive", "OliveDrab", "Orange", "OrangeRed", "Orchid", "PaleGoldenRod", "PaleGreen", "PaleTurquoise", "PaleVioletRed", "PapayaWhip", "PeachPuff", "Peru", "Pink", "Plum", "PowderBlue", "Purple", "Red", "RosyBrown", "RoyalBlue", "SaddleBrown", "Salmon", "SandyBrown", "SeaGreen", "SeaShell", "Sienna", "Silver", "SkyBlue", "SlateBlue", "SlateGray", "SlateGrey", "Snow", "SpringGreen", "SteelBlue", "Tan", "Teal", "Thistle", "Tomato", "Turquoise", "Violet", "Wheat", /*"White",*/ /*"WhiteSmoke",*/ "Yellow", "YellowGreen"];
 var names = ["Robert", "Gregg", "Steven", "Jack", "Rolph", "Keegan", "Ted", "Star Wars", "Biff", "Freddy"]
 var divs = [];
 
@@ -7,33 +7,28 @@ var viewWidth;
 var viewHeight;
 
 // Constructor
-var BouncyDiv = function() {
+var BouncyDiv = function(options) {
   // append element
   this.element = document.getElementById("name") || document.createElement("div");
   this.element.classList.add("bouncy_div");
   document.getElementsByTagName('body')[0].appendChild(this.element);
 
   // setup name
-  randomNameIndex = Math.floor(Math.random() * names.length);
-  this.name = names[randomNameIndex];
-  names.splice(randomNameIndex, 1);
-  console.log(names);
+  this.name = options.name;
   this.element.dataset.speech = "Hello, my name is " + this.name + "!";
 
   // setup color
-  randomColorIndex = Math.floor(Math.random() * colors.length);
-  this.color = colors[randomColorIndex];
-  colors.splice(randomColorIndex, 1);
+  this.color = options.color;
   this.element.style.backgroundColor = this.color;
 
   // setup position
-  this.x = Math.floor((Math.random() * viewWidth) + 1);
-  this.y = Math.floor((Math.random() * viewHeight) + 1);
+  this.x = options.x
+  this.y = options.y;
   this.element.style.left = this.x + "px";
   this.element.style.top = this.y + "px";
 
-  this.directionX = "right";
-  this.directionY = "down";
+  this.directionX = options.directionX;
+  this.directionY = options.directionY;
 
   this.updateX = function(newX) {
     this.x = newX;
@@ -77,8 +72,40 @@ function getWindowDimensions() {
   viewHeight = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
 }
 
-function addNewBouncyDiv() {
-  divs.push(new BouncyDiv());
+function getName() {
+  randomNameIndex = Math.floor(Math.random() * names.length);
+  name = names[randomNameIndex];
+  names.splice(randomNameIndex, 1);
+  console.log(names);
+
+  return name;
+}
+
+function getColor() {
+  randomColorIndex = Math.floor(Math.random() * colors.length);
+  color = colors[randomColorIndex];
+  colors.splice(randomColorIndex, 1);
+
+  return color;
+}
+
+function addNewBouncyDiv(options) {
+
+  // options are undefined, define them
+  if (typeof options == "undefined") {
+    options = {};
+
+    options["name"] = getName()
+    options["color"] = getColor()
+
+    // setup position & direction
+    options["x"] = Math.floor((Math.random() * viewWidth) + 1);
+    options["y"] = Math.floor((Math.random() * viewHeight) + 1);
+    options["directionX"] = "right";
+    options["directionY"] = "down";
+  }
+  console.log(options);
+  divs.push(new BouncyDiv(options));
 }
 
 function addListeners() {
@@ -95,8 +122,7 @@ function addListeners() {
           elemY = el.y;
           elemDirectionX = el.directionX = el.directionX == "right" ? "left" : "right";
           elemDirectionY = el.directionX = el.directionX == "right" ? "left" : "right";
-          addNewBouncyDiv();
-          //addNewBouncyDiv({x: elemX, y: elemY, directionY: elemDirectionY, directionX: elemDirectionX});
+          addNewBouncyDiv({name: getName(), color: getColor(), x: elemX, y: elemY, directionY: elemDirectionY, directionX: elemDirectionX});
         }
        }
     };
@@ -109,6 +135,6 @@ addListeners();
 addNewBouncyDiv();
 
 // add event listeners
-document.getElementById("addDiv").onclick = addNewBouncyDiv;
+// document.getElementById("addDiv").onclick = addNewBouncyDiv;
 window.addEventListener('resize', getWindowDimensions, false);
 setInterval(animateDivs, 10);
