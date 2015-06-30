@@ -20,7 +20,10 @@ window.bouncyDivs = function() {
 
     // setup name
     this.name = options.name;
-    this.element.dataset.speech = "Hello, my name is " + this.name + "!";
+    if (typeof options.speech != "undefined")
+      this.element.dataset.speech = options.speech
+    else
+      this.element.dataset.speech = "Hello, my name is " + this.name + "!";
 
     // setup color
     this.color = options.color;
@@ -87,8 +90,8 @@ window.bouncyDivs = function() {
             //var color = el.color;
             //var name = el.name + " " + getName();
             var name = getName();
-            el.element.dataset.speech = "Hello, I'm " + name + " I budded off " + el.name;
-            addNewBouncyDiv({name: name, color: getColor(), x: el.x, y: el.y, directionY: elemDirectionY, directionX: elemDirectionX});
+            var speech = "Hello, I'm " + name + " I budded off " + el.name;
+            addNewBouncyDiv({name: name, color: getColor(), speech: speech, x: el.x, y: el.y, directionY: elemDirectionY, directionX: elemDirectionX});
           }
          }
       };
