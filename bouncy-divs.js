@@ -84,9 +84,9 @@ window.bouncyDivs = function() {
             var el = divs[d];
             var elemDirectionX = el.directionX = el.directionX == "right" ? "left" : "right";
             var elemDirectionY = el.directionX = el.directionX == "right" ? "left" : "right";
-            var color = el.color;
-            var name = el.name + " " + getName();
-            addNewBouncyDiv({name: name, color: color, x: el.x, y: el.y, directionY: elemDirectionY, directionX: elemDirectionX});
+            //var color = el.color;
+            var name = getName() + " " + el.name;
+            addNewBouncyDiv({name: name, color: getColor(), x: el.x, y: el.y, directionY: elemDirectionY, directionX: elemDirectionX});
           }
          }
       };
