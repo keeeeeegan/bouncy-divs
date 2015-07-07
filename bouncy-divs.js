@@ -35,6 +35,14 @@ window.bouncyDivs = function() {
     this.element.style.left = this.x + "px";
     this.element.style.top = this.y + "px";
 
+    if (typeof options.speed != "undefined")
+      this.speed = options.speed;
+    else
+      this.speed = {
+        x: getRandomNum(3),
+        y: getRandomNum(3)
+      };
+
     this.directionX = options.directionX;
     this.directionY = options.directionY;
 
@@ -57,13 +65,13 @@ window.bouncyDivs = function() {
       var elemWidth = el.element.offsetWidth;
 
       if (el.directionX == "right")
-        el.updateX(el.x + 1);
+        el.updateX(el.x + 1 * el.speed.x);
       else
-        el.updateX(el.x - 1);
+        el.updateX(el.x - 1 * el.speed.x);
       if (el.directionY == "down")
-        el.updateY(el.y + 1);
+        el.updateY(el.y + 1 * el.speed.y);
       else
-        el.updateY(el.y - 1);
+        el.updateY(el.y - 1 * el.speed.y);
 
       //check for collision
       if (el.y + elemHeight >= viewHeight || el.y < 0) {
@@ -117,6 +125,10 @@ window.bouncyDivs = function() {
     colors.splice(randomColorIndex, 1);
 
     return color;
+  }
+
+  var getRandomNum = function(to) {
+    return(Math.floor(Math.random()*(to - 1)) + 1)
   }
 
   var addNewBouncyDiv = function(options) {
